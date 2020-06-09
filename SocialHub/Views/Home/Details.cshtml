@@ -1,0 +1,38 @@
+﻿@model HomeDetailsViewModel
+
+<h1>@Model.PageTitle</h1>
+
+
+@{ 
+    var photoPath = "~/Images/" + (Model.User.PhotoPath ?? "mage.png");
+}
+
+<div class="row justify-content-center m-3">
+    <div class="col-sm-8">
+        <div class="card">
+            <div class="card-header">
+                <h1>@Model.User.FirstName @Model.User.LastName</h1>
+            </div>
+
+            <div class="card-body text-center">
+                <img class="card-img-top" src="@photoPath"  asp-append-version="true" />
+
+                <h4>ID: @Model.User.Id</h4>
+                <h4>First Name: @Model.User.FirstName</h4>
+                <h4>Last Name: @Model.User.LastName</h4>
+
+                <h4>Email : @Model.User.Email</h4>
+
+            </div>
+            <div class="card-footer text-center">
+                <a asp-controller="Home" asp-action="Index" class="btn btn-primary">Back</a>
+                <a asp-controller="Home" asp-action="Edit" asp-route-id="@Model.User.Id"  class="btn btn-primary">Edit</a>
+                <a href="#" class="btn btn-danger">Delete</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/site.js"></script>
+}
