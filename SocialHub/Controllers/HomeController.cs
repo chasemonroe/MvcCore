@@ -44,7 +44,7 @@ namespace SocialHub.Controllers
             {
                 Response.StatusCode = 404;
 
-                return View("EmployeeNotFound", id.Value);
+                return View("UserNotFound", id.Value);
             }
             HomeDetailsViewModel homeDetailsViewModel = new HomeDetailsViewModel()
             {
